@@ -5,26 +5,28 @@ File: teach2.py
 
 Instructions:
 
+As a team, select one of the following 3 tasks
+
 ta-blocks -> count the number of blocks in the image
 ta-cat -> find the eyes only
 ta-connect -> count the number of red and yellow circles
-ta-maze -> (Hard) find the path through the maze
+
+
+The following are hard problems to solve.  They are here for you to continue
+working on after the team activity
+
+ta-maze -> find the path through the maze
 ta-tiles -> count the number of tiles
 
 """
 
 import cv2
 import numpy as np
+import math
 
 
 # ------------------------------------------------------------------------------------------
 def draw_lines(image):
-    # Code example from: https://www.geeksforgeeks.org/line-detection-python-opencv-houghline-method/
-    # Reading the required image in
-    # which operations are to be done.
-    # Make sure that the image is in the same
-    # directory in which this python program is
-
     # Convert the img to grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -32,43 +34,19 @@ def draw_lines(image):
     edges = cv2.Canny(gray, 50, 150, apertureSize=3)
 
     # This returns an array of r and theta values
-    lines = cv2.HoughLines(edges, 1, np.pi/180, 200)
+    lines = cv2.HoughLines(edges, 1, np.pi/180, 50, None, 1, 1)
 
-    if (lines is None):
-        return image
-
-    # The below for loop runs till r and theta values
-    # are in the range of the 2d array
-    for r, theta in lines[0]:
-
-        # Stores the value of cos(theta) in a
-        a = np.cos(theta)
-
-        # Stores the value of sin(theta) in b
-        b = np.sin(theta)
-
-        # x0 stores the value rcos(theta)
-        x0 = a*r
-
-        # y0 stores the value rsin(theta)
-        y0 = b*r
-
-        # x1 stores the rounded off value of (rcos(theta)-1000sin(theta))
-        x1 = int(x0 + 1000*(-b))
-
-        # y1 stores the rounded off value of (rsin(theta)+1000cos(theta))
-        y1 = int(y0 + 1000*(a))
-
-        # x2 stores the rounded off value of (rcos(theta)+1000sin(theta))
-        x2 = int(x0 - 1000*(-b))
-
-        # y2 stores the rounded off value of (rsin(theta)-1000cos(theta))
-        y2 = int(y0 - 1000*(a))
-
-        # cv2.line draws a line in image from the point(x1,y1) to (x2,y2).
-        # (0,0,255) denotes the colour of the line to be
-        #drawn. In this case, it is red.
-        cv2.line(image, (x1, y1), (x2, y2), (0, 0, 255), 2)
+    if lines is not None:
+        for i in range(0, len(lines)):
+            rho = lines[i][0][0]
+            theta = lines[i][0][1]
+            a = math.cos(theta)
+            b = math.sin(theta)
+            x0 = a * rho
+            y0 = b * rho
+            pt1 = (int(x0 + 1000*(-b)), int(y0 + 1000*(a)))
+            pt2 = (int(x0 - 1000*(-b)), int(y0 - 1000*(a)))
+            cv2.line(image, pt1, pt2, (0,0,255), 1, cv2.LINE_AA)
 
     return image
 
@@ -107,6 +85,10 @@ def draw_circles(image):
 img = cv2.imread('ta-blocks.jpg')
 img = draw_lines(img)
 cv2.imshow('lines', img)
+
+img = cv2.imread('ta-connect.png')
+img = draw_circles(img)
+cv2.imshow('Connect', img)
 
 img = cv2.imread('ta-cat.jpg')
 img = draw_circles(img)
