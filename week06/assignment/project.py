@@ -77,7 +77,7 @@ def load_image_files(subpath):
 
 
 def image_compare(image1, image2):
-    sum_diff = np.sum(cv2.absdiff(images1, images2))
+    sum_diff = np.sum(cv2.absdiff(image1, image2))
     return sum_diff
 
 
@@ -95,7 +95,7 @@ def main():
     num_files = len(files)
     print('Number of files =', num_files)
 
-    # TODO - Create 2D array to hold image comparison values
+    # TODO - Create 2D numpy array (NxN) to hold image comparison values
 
 
     # TODO - Call image_compare for all frames (ie., indexes i and j)
