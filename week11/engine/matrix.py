@@ -10,7 +10,7 @@ from common import *
 
 # ----------------------------------------------------------------------------
 # Matrix class
-# This class is used by some of the method in the Engine
+# This class is used by some of the method in Crush
 class Matrix3:
 
     def __init__(self, a = 'Empty', b = None, c = None):

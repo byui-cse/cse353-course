@@ -66,74 +66,153 @@ class Engine():
         # Create the drawing context
         self.win = GraphWin(title, width, height)
 
+        # TODO - add variables as needed for projects
+
         self.width = width
         self.height = height
 
-    def dot(self, x, y, color='black'):
-        """ Draw a dot """
-        self.win.plotPixel(x, y, color)        
+        self.offset_x = 0
+        self.offset_y = 0
+
+        self.scale_mat = Matrix3('Identy')
+        self.rotation_mat = Matrix3('Identy')
+        self.trans_mat = Matrix3('Identy')
+
+        self.win.setBackground(White)
+
+
+    def set_offset(self, x, y):
+        self.offset_x = x
+        self.offset_y = y
+
 
     def createTRS(self):
         return (self.trans_mat * self.rotation_mat * self.scale_mat)
 
 
+    def dot(self, x, y, color='000000'):
+        pt = Point(x, y) * self.createTRS()
+        self.win.plotPixel(pt.getX() + self.offset_x, pt.getY() + self.offset_y, color)
+
+
     def rotation(self, rot):
-        pass
+        self.rotation_mat.rotation(rot)
+        # print(self.mat)
 
 
     def scale(self, x, y):
-        pass
+        self.scale_mat.scale(x, y)
+        # print(self.mat)
 
 
     def translate(self, x, y):
+        self.trans_mat.translation(x, y)
+
+
+    def display(self):
+        self.win.display()
+
+
+    def wait(self, amount):
+        self.display()
+        cv2.waitKey(amount)
+
+
+    def close(self):
         pass
 
-
-    def flush(self):
-        """
-        This function forces any drawing that your program has done to be drawn in the window
-        Calling this function too many times, will slow down your program
-        """
-        self.win.flush()
-
-
-
-
     # --------------------------------------------------------------------------
-    # The following functions are here to help interacting with the user in the main screen.
-
-    def getMouse(self):
-        """ Get the position where the mouse was clicked in the window """
-        return self.win.getMouse()
-
-    def checkMouse(self):
-        """ Return last mouse click or None if mouse has not been clicked since last call """
-        return self.win.checkMouse()
-
-    def getKey(self):
-        """ Wait for user to press a key and return it as a string """
-        return self.win.getKey()
-
-    def checkKey(self):
-        """ Return last key pressed or None if no key pressed since last call """
-        return self.win.checkKey()
-
-    def getHeight(self):
-        """ Return the height of the window """
-        return self.height
-
-    def getWidth(self):
-        """ Return the width of the window """
-        return self.width
-
-    def setMouseHandler(self, func):
-        """ Define your own mouse handler function """
-        self.win.setMouseHandler(func)
-
+    # print() formatting
     def __str__(self):
-        """ This function is called by the Python print() function, add what you want """
+        # TODO - This function is called by the Python print() function, add what you want
         return 'display TODO'
 
-    # Call this to finish any program that you use the engine
-    def close(self):
-        self.win.close()
+    """
+        def _plotLineLow(self, x0, y0, x1, y1):
+            dx = x1 - x0
+            dy = y1 - y0
+            yi = 1
+            if dy < 0:
+                yi = -1
+                dy = -dy
+
+            D = 2*dy - dx
+            y = y0
+
+            for x in frange(x0, x1):
+                self._displayPixel(x, y)
+                if D > 0:
+                    y = y + yi
+                    D = D - 2*dx
+                D = D + 2*dy
+
+
+        def _plotLineHigh(self, x0, y0, x1, y1):
+            dx = x1 - x0
+            dy = y1 - y0
+            xi = 1
+            if dx < 0:
+                xi = -1
+                dx = -dx
+            D = 2*dx - dy
+            x = x0
+
+            for y in frange(y0, y1):
+                self._displayPixel(x,y)
+                if D > 0:
+                    x = x + xi
+                    D = D - 2*dy
+                D = D + 2*dx
+
+        def _plotLine(self, x0,y0, x1,y1):
+            if math.fabs(y1 - y0) < math.fabs(x1 - x0):
+                if x0 > x1:
+                    self._plotLineLow(x1, y1, x0, y0)
+                else:
+                    self._plotLineLow(x0, y0, x1, y1)
+            else:
+                if y0 > y1:
+                    self._plotLineHigh(x1, y1, x0, y0)
+                else:
+                    self._plotLineHigh(x0, y0, x1, y1)
+
+
+
+        def _addToFloodStack(self, stack, r, c):
+            pt = Point(r, c)
+            pt2 = pt * self.createTRS()
+
+            if (pt2.getX() >= self.width): return
+            if (pt2.getY() >= self.height): return
+            if (pt2.getX() <= 0): return
+            if (pt2.getY() <= 0): return
+
+            if (self.win.isPixelOn(pt2.getX(), pt2.getY()) == False):
+                stack.append((r, c))
+
+        # --------------------------------------------------------------------------
+        # This function will fill an area using 4 directional fill alogrithm
+        # The self.win object has the methods:
+        #     isPixelOn()
+        #     clearWindow()
+        def floodfill(self, x, y, color='black'):
+            stack = [(x, y)]
+            count = 0
+            self._addToFloodStack(stack, x, y)
+            while (len(stack) > 0):
+                # pop a point
+                r, c = stack.pop()
+                # print(r, c, self.pos)
+
+                if (self.win.isPixelOn(r, c) == False):
+                    self._displayPixel(r, c, color)
+                    count += 1
+                    if (count % 3000 == 0):
+                        self.flush()
+
+                    # push on stack
+                    self._addToFloodStack(stack, r + 1, c)
+                    self._addToFloodStack(stack, r - 1, c)
+                    self._addToFloodStack(stack, r, c + 1)
+                    self._addToFloodStack(stack, r, c - 1)
+    """

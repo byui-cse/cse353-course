@@ -18,48 +18,90 @@ def draw_axis(engine):
 
     axis = 300
     for i in range(axis):
-        engine.dot(i, 0, 'red')
-        engine.dot(-i, 0, 'green')
-        engine.dot(0, i, 'blue')
-        engine.dot(0, -i, 'black')
+        engine.dot(i, 0, Red)
+        engine.dot(-i, 0, Green)
+        engine.dot(0, i, Blue)
+        engine.dot(0, -i, Black)
 
 
 def translate(engine):
 
     # TODO - Draw square (-50, -50, 50, 50)
+    for i in range(10):
+        engine.dot(-50 + i, -50)
+        engine.dot(-50 + i, 50)
+        engine.dot(50 + i, -50)
+        engine.dot(50 + i, 50)
+
+    engine.translate(100, -90)
+
+    # TODO - Draw square (-50, -50, 50, 50)
+    for i in range(10):
+        engine.dot(-50 + i, -50)
+        engine.dot(-50 + i, 50)
+        engine.dot(50 + i, -50)
+        engine.dot(50 + i, 50)
 
     # TODO - translate the square by (10, 20)
-    pass
 
 
 def rotation(engine):
 
-    # TODO - Draw square (-50, -50, 50, 50)
+    engine.translate(-250, -100)
+    for angle in range(0, 361, 30):
+        engine.rotation(angle)
+
+        # TODO - Draw square (-50, -50, 50, 50)
+        for i in range(40):
+            engine.dot(-50 + i, -50)
+            engine.dot(-50 + i, 50)
+            engine.dot(50 + i, -50)
+            engine.dot(50 + i, 50)
+
+        engine.display()
+        engine.wait(10)
 
     # TODO - rotate the square by 30 degrees
-    pass
 
 
 def scale(engine):
     # TODO - Draw square (-50, -50, 50, 50)
 
+    engine.translate(0, 0)
+    for i in range(60):
+        engine.dot(-50 + i, -50, Red)
+        engine.dot(-50 + i, 50, Red)
+        engine.dot(50 + i, -50, Red)
+        engine.dot(50 + i, 50, Red)
+
+
+    engine.scale(1.5, 3.5)
+
+    for i in range(60):
+        engine.dot(-50 + i, -50, Blue)
+        engine.dot(-50 + i, 50, Blue)
+        engine.dot(50 + i, -50, Blue)
+        engine.dot(50 + i, 50, Blue)
+
     # TODO - scale square by 2x
-    pass
 
 
 def main():
 
     # TODO - Move all drawing to center of the window.  Make center (0, 0)
 
-    engine = Engine("test - Click in window to close", WIDTH, HEIGHT)
+    engine = Engine("test - Press any key to close", WIDTH, HEIGHT)
+
+    engine.set_offset(WIDTH / 2, HEIGHT / 2)
 
     draw_axis(engine)
 
-    # translate(engine)
-    # rotation(engine)
-    # scale(engine)
+    translate(engine)
+    rotation(engine)
+    scale(engine)
 
-    engine.getMouse() # pause for click in window
+    engine.display()
+    engine.wait(0)
     engine.close()
 
 
