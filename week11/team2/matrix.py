@@ -13,19 +13,14 @@ from common import *
 # This class is used by some of the method in Crush
 class Matrix3:
 
-    def __init__(self, a = 'I', b = None, c = None):
+    def __init__(self, mat_type='I', b=None, c=None):
 
         self.mat = [[0.0 for x in range(3)] for y in range(3)]
 
-        mat_type = a.upper()
-        if (a == None):
+        if (mat_type == 'E'):
             pass
-        elif (mat_type == 'E'):
-            pass
-        elif (isinstance(a, (list))):
-            self.setMatrix(a)
         elif (mat_type == 'I'):
-            self.setI()
+            self.setIdent()
         elif (mat_type == 'S'):
             self.setScale(float(b), float(c))
         elif (mat_type == 'R'):
@@ -33,7 +28,7 @@ class Matrix3:
         elif (mat_type == 'T'):
             self.setScale(float(b), float(c))
         else:
-            pass
+            self.setIdent()
 
 
     def __repr__(self):
@@ -44,7 +39,7 @@ class Matrix3:
         return line + '\n' + str1 + str2 + str3 + line
 
 
-    def setI(self):
+    def setIdent(self):
         self.setMatrix([1,0,0,0,1,0,0,0,1])
 
 
@@ -92,7 +87,7 @@ class Matrix3:
 
     # Return the results of A * B
     def __mul__(self, other):
-        tmp = Matrix3()
+        tmp = Matrix3('E')
         for r in range(3):
             for c in range(3):
                 for k in range(3):
@@ -102,7 +97,7 @@ class Matrix3:
 
     # Return the results of A + B
     def __add__(self, other):
-        tmp = Matrix3()
+        tmp = Matrix3('E')
         for r in range(3):
             for c in range(3):
                 tmp.mat[r][c] = self.mat[r][c] + other.mat[r][c]
@@ -111,7 +106,7 @@ class Matrix3:
 
     # Return the results of A - B
     def __sub__(self, other):
-        tmp = Matrix3()
+        tmp = Matrix3('E')
         for r in range(3):
             for c in range(3):
                 tmp.mat[r][c] = self.mat[r][c] - other.mat[r][c]

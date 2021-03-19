@@ -70,43 +70,40 @@ class Engine():
 
         self.width = width
         self.height = height
-
-        self.offset_x = 0
-        self.offset_y = 0
-
+  
         self.scale_mat = Matrix3('I')
         self.rotation_mat = Matrix3('I')
         self.trans_mat = Matrix3('I')
 
+        self.trs = self._createTRS()
         self.win.setBackground(White)
 
 
-    def world_offset(self, x, y):
-        self.offset_x = x
-        self.offset_y = y
-
-
-    def createTRS(self):
-        return (self.trans_mat * self.rotation_mat * self.scale_mat)
+    def clear(self):
+        self.win.clearWindow()
 
 
     def dot(self, x, y, color='000000'):
-        pt = Point(x, y) * self.createTRS()
-        self.win.plotPixel(pt.getX() + self.offset_x, pt.getY() + self.offset_y, color)
+        pt = Point(x, y) * self._createTRS()
+        self.win.plotPixel(pt.getX(), pt.getY(), color)
+
+
+    def draw_dot(self, x, y, trs, color='000000'):
+        # TODO - complete this method
+        pass
 
 
     def rotation(self, rot):
         self.rotation_mat.rotation(rot)
-        # print(self.mat)
-
+        self.trs = self._createTRS()
 
     def scale(self, x, y):
         self.scale_mat.scale(x, y)
-        # print(self.mat)
-
+        self.trs = self._createTRS()
 
     def translate(self, x, y):
         self.trans_mat.translation(x, y)
+        self.trs = self._createTRS()
 
 
     def display(self):
@@ -120,6 +117,9 @@ class Engine():
 
     def close(self):
         pass
+
+    def _createTRS(self):
+        return (self.trans_mat * self.rotation_mat * self.scale_mat)
 
     # --------------------------------------------------------------------------
     # print() formatting
