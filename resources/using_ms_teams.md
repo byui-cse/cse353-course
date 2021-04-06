@@ -1,4 +1,4 @@
-![](../site/banner.png)
+![](../images/banner.png)
 ***
 
 # Microsoft Teams
