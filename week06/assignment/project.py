@@ -116,7 +116,7 @@ def main():
 
 
     # TODO - Output your loop
-    #        a) 4 times of your found loop
+    #        a) 4 times of your found loop or until you have at least a 20 second video.
     #        b) must blend between the end and start frames when you loop
     #        c) you will be uploading your final video to DropBox, OneDrive, Youtube, GDrive, etc...
     #           and submitting a link to it.

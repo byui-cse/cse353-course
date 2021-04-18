@@ -1,5 +1,6 @@
 """
 Course: CS312
+Week: 01
 File: teach2.py
 Description:
    Simple shopping list program
@@ -91,9 +92,9 @@ Good bye
 """
 
 def main():
-  pass
+    pass
 
 
 if __name__ == "__main__":
-  # execute only if run as a script
-  main()
+    # execute only if run as a script
+    main()

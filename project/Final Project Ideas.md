@@ -8,7 +8,7 @@ Here are some suggestions for final projects.  You are free to use one of these 
 - Take pictures of a room and allow a user to change color of the walls, chairs, etc.
 - [Seam carving](https://en.wikipedia.org/wiki/Seam_carving)
 - Learn [ThreeJS](https://threejs.org/) and create a scene that can be moved through and/or learn about shaders.
-- Raytracing
+- Raytracing (Not as hard as you think it is)
 - [Texture synthesis](https://en.wikipedia.org/wiki/Texture_synthesis)
 - [Inpainting](https://en.wikipedia.org/wiki/Inpainting)
 - face transfer between two people

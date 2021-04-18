@@ -6,7 +6,7 @@
 <title>project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <style type="text/css">
-  pre { line-height: 125%; margin: 0; }
+  pre { line-height: 125%; }
 td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
 td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
@@ -13110,13 +13110,8 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Instructions">Instructions<a class="anchor-link" href="#Instructions">¶</a></h2><ol>
 <li>Go to the GitHub folder for <code>week03/assignment</code> and download all of the files found in this folder to a location on your computer.</li>
-<li>The file <code>project.py</code></li>
+<li>Download the files for the project.</li>
 </ol>
-<ul>
-<li>There are a number of filters that can be used on images.  </li>
-<li>Introduction to using kernels in filtering.</li>
-<li>You will be implimenting a general function that can apply different filters.</li>
-</ul>
 <p><strong>Files for this project</strong></p>
 <ol>
 <li><code>project.py</code> - Your project code.</li>
@@ -13140,12 +13135,12 @@ div#notebook {
 </ul>
 <hr>
 <h3 id="2)-resize_image(srcfilename,-dstfilename,-scale)">2) resize_image(srcfilename, dstfilename, scale)<a class="anchor-link" href="#2)-resize_image(srcfilename,-dstfilename,-scale)">¶</a></h3><p><strong>Purpose:</strong></p>
-<p>This function will open the image given by the argument <code>srcfilename</code>, resize the image to the given scale.  Then save the resulting scaled image to <code>dstfilename</code></p>
+<p>This function will open the image given by the argument <code>srcfilename</code>, resize the image to the given scale amount.  Then save the resulting image to <code>dstfilename</code>.  Note, you can't use any resizing functions in OpenCV.</p>
 <p><strong>Arguments:</strong></p>
 <ul>
-<li>srcfilename: source file name of the image to convert</li>
-<li>dstfilename: file name of the image to save the converted image</li>
-<li>scale: scale factor as an integer</li>
+<li>srcfilename: source file name of the image to convert.</li>
+<li>dstfilename: file name of the image to save the converted image.</li>
+<li>new_size: scale as an integer.</li>
 </ul>
 <hr>
 <h3 id="3)-border_image(srcfilename,-dstfilename,-width,-color)">3) border_image(srcfilename, dstfilename, width, color)<a class="anchor-link" href="#3)-border_image(srcfilename,-dstfilename,-width,-color)">¶</a></h3><p><strong>Purpose:</strong></p>

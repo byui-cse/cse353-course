@@ -1,15 +1,12 @@
 """
 Course: CS312
+Week: 01
 File: teach1.py
 Description:
+
    Simple Python problems
 
    You are NOT submitting this program.
-"""
-
-"""
-Instructions:
-
 """
 
 # ---------------------------------------------------------------------------------​
@@ -66,15 +63,16 @@ print(x, y)
 
 
 # Problem: Using loop(s) and only a '*' or blank one at a time, display the following
+# Make the code handle any size of diamond (ie., this diamond below is size = 5)
 #
 #      *
-#     ***
-#    *****
-#   *******
-#  *********
-#   *******
-#    *****
-#     ***
+#     * *
+#    *   *
+#   *     *
+#  *       *
+#   *     *
+#    *   *
+#     * *
 #      *
 
 
@@ -97,15 +95,14 @@ print(x, y)
 # on
 # the
 # hill
-# words = 'The red house is on the hill'
 
 
-# Problem: Use the python format() statement in a print() statement to display the following. You can only use the variable x.
+# Problem: Use the python f-strings to display the following. You can only use the variable x.
 # The numbers 1 + 1 equal 2
 # x = 1
 
 
-# Problem: Use the python print()/format() statements to display the float number following value as 3.14
+# Problem: Use the python print()/f-strings to display the float number following value as 3.14
 # pi = 3.141592653589793
 
 

@@ -28,7 +28,8 @@ def resize_image(srcfilename, dstfilename, scale):
     """ Resize image
         if scale is < 100.0, remove rows and cols
         if scale is > 100.0, set new rows and cols to (0, 0, 0)
-	"""
+        Can't use any resizing functions in OpenCV
+    """	
     pass
 
 

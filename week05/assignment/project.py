@@ -12,7 +12,9 @@ Description:
 
     - Create 3 different videos with a transition.  A transition will transition between
       each video - moving from one video to the other in the final video you create.
+    - During the transition, I need to see both videos on the same screen for at least (if not all) part of it.
     - The new video will consist of a transtion from one video to the other for the full length of the video.
+    - You must use a mask in at least one of your transitions.
     - The transitions must be different in a meaningful way.
     - No random transitions.
     - You can only use OpenCV, Numpy, os packages (Scipy too, but you don't need it)
