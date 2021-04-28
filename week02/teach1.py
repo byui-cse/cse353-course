@@ -46,9 +46,9 @@ def task4():
 
 
 def task5():
-    """ Create array of 100 random values and create another one where
-    values equal and over 0.5 are set to 1.0 and values less than
-    0.5 are set to 0.0
+    """ Create array of 100 random values between 0.0 and 1.0. Then
+    create another one where values equal and over 0.5 are set to 1.0 
+    and values less than 0.5 are set to 0.0
     """
 
     # Replace 'None' with the array you create
