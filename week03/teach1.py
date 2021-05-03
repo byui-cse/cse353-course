@@ -1,16 +1,11 @@
 """
-Course: CS312
+Course: CSE353
+Week: 03
 File: teach1.py
-Description:
-   OpenCV functions
 
-   You are NOT submitting this program.
-"""
-
-"""
 Instructions:
 
-- You will impliementing the following functions using Opencv
+- You will implementing the following functions using Opencv
 - The first step is to make sure that you have OpenCV for Python installed
 - You a free to use any images for the function below (except task 5)
   - Download images from the Internet
