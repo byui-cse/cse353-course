@@ -10,7 +10,7 @@ Description:
 """
 Instructions:
 
-- You will impliementing the following functions
+- You will implementing the following functions
 - You must download the image files from Github for week04:
 
     byuisign.jpg
@@ -24,6 +24,7 @@ import numpy as np
 import cv2
 
 
+# ----------------------------------------------------------------------------
 def blend():
     """ Blend two images together and display the results 
         Use loops not OpenCV functions
@@ -39,11 +40,7 @@ def blend():
     # TODO - Task 2) blend these images together any way you want (be creative)
 
 
-
-
-
-
-
+# ----------------------------------------------------------------------------
 def green_screen():
     """ Place one image in another using green screen (don't use masking in OpenCV) 
         Display the results.
@@ -58,11 +55,11 @@ def green_screen():
     #        (you decide where on the sign image)
 
 
+# ----------------------------------------------------------------------------
+def main():
+    blend()
+    green_screen()
 
-    
-
-
-# Main code
-blend()
-green_screen()
+if __name__ == '__main__':
+    main()
 

@@ -3,7 +3,6 @@ Course: CSE 353
 File: teach2.py
 Description:
    OpenCV functions
-
    You are NOT submitting this program.
 """
 
@@ -20,4 +19,12 @@ Instructions:
 """
 
 # TODO - Add you code here
+
+
+# ----------------------------------------------------------------------------
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
 
