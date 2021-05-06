@@ -42,7 +42,7 @@ def task4(file):
 
 
 def task5():
-    """ Task5: Tile a small image into a larger one """
+    """ Task5: Place a small image into a larger one """
     print('Task 5')
 
 

@@ -1,69 +1,38 @@
 """
-Course: CSE353
-Week: 03
+Course: CSE 353
+Lesson Week: 03
 File: teach2.py
-
-Instructions:
-
-https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html
-
+Author: Brother Comeau
+Instructions: Look for the TODO in comments
 """
-import numpy as np
-import matplotlib.pyplot as plt
+
+import time
 import cv2
-
-# --------------------------------------------------------------------------
-def display_image(img, title):
-    """ This function is handle to display grayscale images in the notebook """
-    plt.imshow(img, cmap = 'gray')
-    plt.title(title), plt.xticks([]), plt.yticks([])
-    plt.show()
+from matplotlib.pylab import plt
+import numpy as np
 
 
-# --------------------------------------------------------------------------
-def thresholds():
-    img = cv2.imread('gradient.png',0)
+def fill_shapes():
+    image = cv2.imread('shapes.png')
 
-    ret,thresh1 = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
-    ret,thresh2 = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
-    ret,thresh3 = cv2.threshold(img,127,255,cv2.THRESH_TRUNC)
-    ret,thresh4 = cv2.threshold(img,127,255,cv2.THRESH_TOZERO)
-    ret,thresh5 = cv2.threshold(img,127,255,cv2.THRESH_TOZERO_INV)
-    titles = ['Original Image', 'BINARY', 'BINARY_INV', 'TRUNC', 'TOZERO', 'TOZERO_INV']
-    images = [img, thresh1, thresh2, thresh3, thresh4, thresh5]
+    """
+    TODO
 
-    for i in range(6):
-        plt.subplot(2, 3, i+1),plt.imshow(images[i], 'gray')
-        plt.title(titles[i])
-        plt.xticks([]),plt.yticks([])
+    Use a recursive function to fill in the different shapes in the "shapes.png" image
+    Don't use any opencv fill functions - just numpy accessing one pixel at a time
 
-    plt.show()    
+    - Fill in the large center circle red
+    - Fill in the small top circle blue
+    - Fill in the square green
+    - Fill in the ploygon yellow
+    """
 
-# --------------------------------------------------------------------------
-def adaptive():
-    img = cv2.imread('temple.jpg',0)
-    img = cv2.medianBlur(img,5)
-
-    ret,th1 = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
-    th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,11,2)
-    th3 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
-
-    titles = ['Original Image', 'Global Thresholding (v = 127)',
-              'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
-    images = [img, th1, th2, th3]
-
-    for i in range(4):
-        plt.subplot(2, 2, i+1),plt.imshow(images[i],'gray')
-        plt.title(titles[i])
-        plt.xticks([]),plt.yticks([])
-    plt.show()
+    cv2.imshow('Shapes', image)
+    cv2.waitKey(0)
 
 
-# --------------------------------------------------------------------------
 def main():
-    thresholds()
-    adaptive()
-    
+    fill_shapes()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
