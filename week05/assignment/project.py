@@ -2,23 +2,7 @@
 Course: CSS 353
 File: project05.py
 Description: 
-
     Using OpenCV to constuct video transitions
-
-    - Both videos "snow.mp4" and "beach.mp4" are the same length and size.
-      Download the videos with the link below.
-
-	https://webmailbyui-my.sharepoint.com/:f:/g/personal/comeaul_byui_edu/EpbA6x-qesxCgYuh6IaHrxMB8PTFdEIvqqnvI69eTeM6iQ?e=fPG2QE
-
-    - Create 3 different videos with a transition.  A transition will transition between
-      each video - moving from one video to the other in the final video you create.
-    - During the transition, I need to see both videos on the same screen for at least (if not all) part of it.
-    - The new video will consist of a transtion from one video to the other for the full length of the video.
-    - You must use a mask in at least one of your transitions.
-    - The transitions must be different in a meaningful way.
-    - No random transitions.
-    - You can only use OpenCV, Numpy, os packages (Scipy too, but you don't need it)
-
     Read the requirements for the project in Canvas
 """
 

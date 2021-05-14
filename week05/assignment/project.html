@@ -6,10 +6,10 @@
 <title>project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <style type="text/css">
-  pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #f8f8f8; }
@@ -13110,10 +13110,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Instructions">Instructions<a class="anchor-link" href="#Instructions">¶</a></h2><p>In this assignment, you will be implimenting 3 video transitions between 2 videos.</p>
 <ol>
-<li>Download the Python file for the project from Github <code>week05/assignement</code>.</li>
-<li>Download the two videos used for this project from the following OneDrive shared folder: <a href="https://webmailbyui-my.sharepoint.com/:f:/g/personal/comeaul_byui_edu/EpbA6x-qesxCgYuh6IaHrxMB8PTFdEIvqqnvI69eTeM6iQ?e=fPG2QE">Download Videos Here</a></li>
+<li>Download the Python file for the project from Github <code>week05/assignement</code>.  This folder contains a Python file and two video files.</li>
 <li>Implement three different transitions between these two videos.  Each transition will create a new video file.  These transitions must last the length of the videos. (ie., If the two videos are 10 seconds, then the transition between them will be 10 seconds in the resulting video file you create).</li>
 <li>The transitions must <strong>not</strong> to be similar.  For example, if you create a transition that moved left to right, then I don't want the next transition to be from the right to the left.</li>
+<li>During the transition, I need to see both videos on the same screen for at least (if not all) part of it.</li>
+<li>The new video will consist of a transtion from one video to the other for the full length of the video.</li>
+<li>You must use a mask in at least one of your transitions.</li>
+<li>You can only use OpenCV, Numpy, os packages (Scipy too, but you don't need it)</li>
 </ol>
 
 </div>
@@ -13149,12 +13152,8 @@ The Assignment will be graded in broad categories according to the following:</p
 <td>Slightly deficient</td>
 </tr>
 <tr>
-<td>93%</td>
-<td>Meets requirements</td>
-</tr>
-<tr>
-<td>100%</td>
-<td>Showed creativity and extend your assignments beyond the minimum standard that is specifically required</td>
+<td>93%  to 100%</td>
+<td>Meets requirements and/or Showed creativity and extend your assignments beyond the minimum standard that is specifically required</td>
 </tr>
 </tbody>
 </table>
