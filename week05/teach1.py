@@ -75,6 +75,7 @@ def task4():
 def task5():
 	""" 
     create a vide stream of differences from the camera
+    - Keep track of the previous frame and the current frame
 	- use gray scale images
 	- use the OpenCV function absdiff()
     - Questions: are the any methods/techniques to make this work better?
