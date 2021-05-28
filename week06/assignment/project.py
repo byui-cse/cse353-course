@@ -1,16 +1,11 @@
-"""
-Course: CSE 353
-Author: <Enter You Name>
-
-Instructions:
-
-- Impliment the TODO tasks.
-
-"""
 import numpy as np
 import cv2
 import glob
 import os
+
+""" 
+Impliment the TODO tasks.
+"""
 
 def write_diff_matrix(diff, start_frame, end_frame):
     """This function normalizes the difference matrices so that they can be shown as images."""
@@ -77,7 +72,7 @@ def load_image_files(subpath):
 
 
 def image_compare(image1, image2):
-    sum_diff = np.sum(cv2.absdiff(image1, image2))
+    sum_diff = np.sum(cv2.absdiff(images1, images2))
     return sum_diff
 
 
@@ -95,18 +90,16 @@ def main():
     num_files = len(files)
     print('Number of files =', num_files)
 
-    # TODO - Create 2D numpy array (NxN) to hold image comparison values
-
+    # TODO - Create 2D array to hold image comparison values
 
     # TODO - Call image_compare for all frames (ie., indexes i and j)
-    #        Call the function write_diff_matrix() with that array to
-    #        save it to a file.
-
 
     # TODO - Find the smallest difference between frames.
     #        You want to select frames that are as far apart as makes sense.
 
-
+    # TODO - Call the function write_diff_matrix() with that array to
+    #        save it to a file.
+    
     # TODO - Show the start and end frame of your loop.  Comment out the follow and
     #        adjust the code to save your first and last frame of your longest loop.
 	#
@@ -116,7 +109,7 @@ def main():
 
 
     # TODO - Output your loop
-    #        a) 4 times of your found loop or until you have at least a 20 second video.
+    #        a) 4 times of your found loop
     #        b) must blend between the end and start frames when you loop
     #        c) you will be uploading your final video to DropBox, OneDrive, Youtube, GDrive, etc...
     #           and submitting a link to it.

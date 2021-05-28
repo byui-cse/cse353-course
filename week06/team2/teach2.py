@@ -9,7 +9,7 @@ import cv2
 # ===========================================================
 def task1():
     """
-    - Using a live video (or person video or the Internet)
+    - Using a live video (or personal video or the something from the Internet)
     - Apply a mask to the video
     - Apply a filter to each frame
         - sharpen it
