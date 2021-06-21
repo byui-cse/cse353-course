@@ -88,12 +88,24 @@ class Matrix3:
     # Return the results of A * B
     def __mul__(self, other):
         tmp = Matrix3('E')
-        for r in range(3):
-            for c in range(3):
-                for k in range(3):
-                    tmp.mat[r][c] += self.mat[r][k] * other.mat[k][c]
-        return tmp
+        # for r in range(3):
+        #     for c in range(3):
+        #         for k in range(3):
+        #             tmp.mat[r][c] += self.mat[r][k] * other.mat[k][c]
+        # return tmp
+        tmp.mat[0][0] = (self.mat[0][0] * other.mat[0][0]) + (self.mat[0][1] * other.mat[1][0]) + (self.mat[0][2] * other.mat[2][0])
+        tmp.mat[1][0] = (self.mat[1][0] * other.mat[0][0]) + (self.mat[1][1] * other.mat[1][0]) + (self.mat[1][2] * other.mat[2][0])
+        tmp.mat[2][0] = (self.mat[2][0] * other.mat[0][0]) + (self.mat[2][1] * other.mat[1][0]) + (self.mat[2][2] * other.mat[2][0])
 
+        tmp.mat[0][1] = (self.mat[0][0] * other.mat[0][1]) + (self.mat[0][1] * other.mat[1][1]) + (self.mat[0][2] * other.mat[2][1])
+        tmp.mat[1][1] = (self.mat[1][0] * other.mat[0][1]) + (self.mat[1][1] * other.mat[1][1]) + (self.mat[1][2] * other.mat[2][1])
+        tmp.mat[2][1] = (self.mat[2][0] * other.mat[0][1]) + (self.mat[2][1] * other.mat[1][1]) + (self.mat[2][2] * other.mat[2][1])
+
+        tmp.mat[0][2] = (self.mat[0][0] * other.mat[0][2]) + (self.mat[0][1] * other.mat[1][2]) + (self.mat[0][2] * other.mat[2][2])
+        tmp.mat[1][2] = (self.mat[1][0] * other.mat[0][2]) + (self.mat[1][1] * other.mat[1][2]) + (self.mat[1][2] * other.mat[2][2])
+        tmp.mat[2][2] = (self.mat[2][0] * other.mat[0][2]) + (self.mat[2][1] * other.mat[1][2]) + (self.mat[2][2] * other.mat[2][2])
+
+        return tmp
 
     # Return the results of A + B
     def __add__(self, other):

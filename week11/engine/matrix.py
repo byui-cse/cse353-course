@@ -13,24 +13,24 @@ from common import *
 # This class is used by some of the method in Crush
 class Matrix3:
 
-    def __init__(self, a = 'Empty', b = None, c = None):
+    def __init__(self, a = 'I', b = None, c = None):
 
         self.mat = [[0.0 for x in range(3)] for y in range(3)]
 
         mat_type = a.upper()
         if (a == None):
             pass
-        elif (mat_type == 'EMPTY'):
+        elif (mat_type == 'E'):
             pass
         elif (isinstance(a, (list))):
             self.setMatrix(a)
-        elif (mat_type == 'IDENTY'):
-            self.setIdenty()
-        elif (mat_type == 'SCALE'):
+        elif (mat_type == 'I'):
+            self.setI()
+        elif (mat_type == 'S'):
             self.setScale(float(b), float(c))
-        elif (mat_type == 'ROTATION'):
+        elif (mat_type == 'R'):
             self.setRotation(float(b))
-        elif (mat_type == 'TRANS'):
+        elif (mat_type == 'T'):
             self.setScale(float(b), float(c))
         else:
             pass
@@ -44,7 +44,7 @@ class Matrix3:
         return line + '\n' + str1 + str2 + str3 + line
 
 
-    def setIdenty(self):
+    def setI(self):
         self.setMatrix([1,0,0,0,1,0,0,0,1])
 
 

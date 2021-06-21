@@ -95,15 +95,12 @@ class Engine():
 
     def rotation(self, rot):
         self.rotation_mat.rotation(rot)
-        self.trs = self._createTRS()
 
     def scale(self, x, y):
         self.scale_mat.scale(x, y)
-        self.trs = self._createTRS()
 
     def translate(self, x, y):
         self.trans_mat.translation(x, y)
-        self.trs = self._createTRS()
 
 
     def display(self):

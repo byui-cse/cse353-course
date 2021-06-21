@@ -74,9 +74,9 @@ class Engine():
         self.offset_x = 0
         self.offset_y = 0
 
-        self.scale_mat = Matrix3('Identy')
-        self.rotation_mat = Matrix3('Identy')
-        self.trans_mat = Matrix3('Identy')
+        self.scale_mat = Matrix3('I')
+        self.rotation_mat = Matrix3('I')
+        self.trans_mat = Matrix3('I')
 
         self.win.setBackground(White)
 
